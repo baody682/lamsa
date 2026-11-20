@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5E1233">
+<title>لمسة — نموذج أولي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+:root{--bg:#F4EFF2;--card:#fff;--ink:#231820;--mut:#76666F;--br:#5E1233;--br2:#8A1D4A;--gold:#C79A3B;--line:#E4D9DF;--ok:#1F7A63;--bad:#B3261E;--wt:#9A6B00;--shell:#DCD3D8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1A1117;--card:#26191F;--ink:#F4EAEF;--mut:#B8A4AE;--line:#3B2A33;--gold:#D9AE55;--ok:#4CC3A0;--bad:#FF8A80;--wt:#E3B341;--shell:#0D080B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1A1117;--card:#26191F;--ink:#F4EAEF;--mut:#B8A4AE;--line:#3B2A33;--gold:#D9AE55;--ok:#4CC3A0;--bad:#FF8A80;--wt:#E3B341;--shell:#0D080B;color-scheme:dark}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{height:100%;font-family:Tajawal,system-ui,sans-serif;background:var(--shell);color:var(--ink);display:grid;place-items:center;font-size:15px;line-height:1.55}
+.frame{width:392px;height:min(840px,100%);background:var(--bg);border-radius:36px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 0 9px var(--ink),0 30px 70px #0005;position:relative}
+@media(max-width:520px){body{display:block}.frame{width:100%;height:100%;border-radius:0;box-shadow:none}}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{background:var(--br);color:#fff;padding:16px 20px 14px;flex:none}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:30px;font-weight:800;letter-spacing:0;display:flex;align-items:center;gap:8px}
+.logo svg{width:22px;height:22px;color:var(--gold)}
+.tag{font-size:12px;opacity:.8}
+.dots{display:flex;gap:6px;margin-top:10px}.dots i{height:4px;flex:1;border-radius:3px;background:#ffffff33}.dots i.on{background:var(--gold)}
+main{flex:1;overflow:auto;padding:18px 20px 26px}
+nav{flex:none;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:4px}
+nav button{flex:1;padding:12px 4px 10px;font-weight:700;font-size:13px;color:var(--mut);position:relative}
+nav button.on{color:var(--br2)}
+nav button.on::before{content:"";position:absolute;top:-1px;inset-inline:28%;height:3px;border-radius:0 0 3px 3px;background:var(--gold)}
+@media(prefers-color-scheme:dark){nav button.on{color:var(--gold)}}
+h2{font-size:22px;font-weight:800;line-height:1.35;margin-bottom:4px}
+.p{color:var(--mut);font-size:14px;margin-bottom:16px}
+label,.lb{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 15px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-weight:500}
+.chip.on{background:var(--br);border-color:var(--br);color:#fff;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--br2);height:28px}
+.big{font-size:26px;font-weight:800;color:var(--br2)}
+@media(prefers-color-scheme:dark){.big{color:var(--gold)}}
+.sw{display:flex;align-items:center;gap:12px;width:100%;text-align:start;padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);margin-top:16px;font-weight:500}
+.sw b{margin-inline-start:auto;width:42px;height:24px;border-radius:99px;background:var(--line);position:relative;transition:.2s}
+.sw b::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.sw.on b{background:var(--ok)}.sw.on b::after{inset-inline-start:21px}
+.btn{display:block;width:100%;margin-top:22px;padding:15px;border-radius:14px;background:var(--br);color:#fff;font-weight:800;font-size:16px;text-align:center}
+.btn.g{background:none;border:1.5px solid var(--line);color:var(--ink);margin-top:10px;font-weight:700}
+.btn:disabled{opacity:.55;cursor:default}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.card.sel{border:2px solid var(--gold)}
+.hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.hd b{font-size:18px}.hd span{font-size:22px;font-weight:800;color:var(--br2)}
+@media(prefers-color-scheme:dark){.hd span{color:var(--gold)}}
+.d{color:var(--mut);font-size:13px;margin-bottom:10px}
+.ln{display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--line);font-size:14px}
+.ln small{display:block;color:var(--mut);font-size:12px}
+.mt{height:8px;border-radius:9px;background:var(--line);margin:12px 0 4px;overflow:hidden}.mt i{display:block;height:100%;background:var(--ok);border-radius:9px;transition:width .4s}.mt i.ov{background:var(--bad)}
+.mt+small{color:var(--mut);font-size:12px}
+.tl{position:relative;padding-inline-start:30px;margin:6px 0}
+.tl::before{content:"";position:absolute;inset-block:8px;inset-inline-start:9px;width:2px;background:var(--line)}
+.ti{position:relative;padding:0 0 18px}
+.ti::before{content:"";position:absolute;top:5px;inset-inline-start:-27px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--br2)}
+.ti.ok::before{background:var(--ok);border-color:var(--ok)}.ti.no::before{border-color:var(--bad);background:var(--bad)}
+.ti .tm{font-size:12px;color:var(--mut);font-weight:700}
+.ti .r{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ti.end::before{background:var(--gold);border-color:var(--gold);width:16px;height:16px;top:3px;inset-inline-start:-29px}
+.ti.end b{color:var(--gold)}
+.st{font-size:11px;font-weight:700;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.st.w{background:#C79A3B26;color:var(--wt)}.st.o{background:#1F7A6322;color:var(--ok)}.st.n{background:#B3261E22;color:var(--bad)}.st.i{background:var(--line);color:var(--mut)}
+.sp{display:inline-block;width:10px;height:10px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;margin-inline-end:5px;vertical-align:-1px;animation:s .8s linear infinite}
+@keyframes s{to{rotate:360deg}}
+.al{border:2px solid var(--bad);border-radius:16px;padding:14px;background:var(--card);margin-bottom:14px}
+.al b{color:var(--bad)}
+.ok-i{width:68px;height:68px;border-radius:50%;background:var(--ok);display:grid;place-items:center;margin:14px auto 12px}.ok-i svg{width:34px;height:34px;color:#fff}
+.ctr{text-align:center}
+.stp{display:flex;align-items:center;justify-content:space-between;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:6px}
+.stp button{width:40px;height:40px;border-radius:10px;background:var(--bg);font-size:20px;font-weight:800}.stp b{font-size:17px}
+.row2{display:flex;gap:8px;margin-top:10px}.row2 .btn{margin-top:0;padding:11px;font-size:14px}
+#ts{position:absolute;inset-inline:20px;bottom:76px;background:var(--ink);color:var(--bg);padding:11px 14px;border-radius:12px;font-size:14px;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s}
+#ts.on{opacity:1}
+.sim{font-size:12px;color:var(--mut);text-align:center;margin-top:16px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:2s!important}}
+</style>
+</head>
+
+
+<body>
+<div class="frame"><header id="hd"></header><main id="mn"></main><nav id="nv"></nav><div id="ts" role="status"></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const n=x=>(+x).toLocaleString('ar-EG');
+const fm=o=>{const h=Math.floor(o),m=Math.round((o-h)*60);return n((h+11)%12+1)+':'+(m<10?'٠':'')+n(m)+(h>=12?' م':' ص')};
+const S={r:'c',st:0,bud:400,own:true,occ:'تخرّج',day:'بكرة',pl:'A',ph:0,loc:'قاعة حفل',hrs:2,stf:2,tch:true,sent:false,pcs:10,vid:true,inb:[0,0]};
+const PL={
+A:{n:'متوازنة',d:'تعديل عبايتكِ مع مكياج كامل وحقيبة مؤجّرة',it:[
+{n:'تعديل الأكمام',w:'ورشة الدوحة للخياطة',p:60,o:13},
+{n:'مكياج كامل',w:'مها، خبيرة مكياج',p:260,o:15,a:270,ao:16},
+{n:'تأجير حقيبة',w:'ستوديو الإكسسوار',p:60,o:16.5},
+{n:'توصيل',w:'لمسة',p:10,o:17.25}]},
+B:{n:'اقتصادية',d:'تعديل الأكمام مع مكياج سريع وإكسسوار بسيط',it:[
+{n:'تعديل الأكمام',w:'ورشة الدوحة للخياطة',p:60,o:13},
+{n:'مكياج سريع',w:'مها، خبيرة مكياج',p:200,o:15.5,a:210,ao:16},
+{n:'تأجير إكسسوار',w:'ستوديو الإكسسوار',p:35,o:16.5},
+{n:'توصيل',w:'لمسة',p:10,o:17.25}]}};
+const items=pl=>PL[pl||S.pl].it.map(i=>S.own||i.n!='تعديل الأكمام'?i:{n:'عباية جاهزة',w:'متجر العباية الشريك',p:280,o:13});
+const done=()=>S.ph>=3;
+const pr=i=>done()&&i.a?i.a:i.p, tm=i=>done()&&i.a?i.ao:i.o;
+const tot=pl=>items(pl).reduce((a,i)=>a+(pl?i.p:pr(i)),0);
+const mt=t=>`<div class="mt"><i class="${t>S.bud?'ov':''}" style="width:${Math.min(100,t/S.bud*100)}%"></i></div><small>${t>S.bud?'تتجاوز الميزانية بـ '+n(t-S.bud):'المتبقي من الميزانية '+n(S.bud-t)} ر.ق</small>`;
+const ch=(k,a)=>`<div class="chips">${a.map(v=>`<button class="chip ${S[k]===v?'on':''}" onclick="set('${k}','${v}')">${v}</button>`).join('')}</div>`;
+const sw=(k,t)=>`<button class="sw ${S[k]?'on':''}" onclick="set('${k}',!S.${k})">${t}<b></b></button>`;
+const stp=(k,mn,mx)=>`<div class="stp"><button aria-label="زيادة" onclick="set('${k}',Math.min(${mx},S.${k}+1))">+</button><b>${n(S[k])}</b><button aria-label="إنقاص" onclick="set('${k}',Math.max(${mn},S.${k}-1))">−</button></div>`;
+const tick='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const spark='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>';
+function set(k,v){S[k]=v;R(true)}
+function go(s){S.st=s;R()}
+function role(r){S.r=r;R()}
+function toast(m){const t=$('#ts');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
+function bud(v){S.bud=+v;$('#bv').textContent=n(v)+' ر.ق'}
+function reset(){Object.assign(S,{st:0,ph:0,pl:'A',sent:false});R()}
+function send(){S.ph=1;R(true);setTimeout(()=>{if(S.ph==1){S.ph=2;R(true)}},1600)}
+function pick(p){S.pl=p;S.ph=0;go(2)}
+
+function cust(){
+if(S.st==0)return`<h2>جهّزي إطلالتكِ في خطة واحدة</h2><p class="p">اختاري المناسبة والميزانية، ونرتّب المواعيد والتوصيل.</p>
+<div class="lb">المناسبة</div>${ch('occ',['تخرّج','جلسة تصوير','عزيمة','زفاف'])}
+<div class="lb">الموعد</div>${ch('day',['اليوم','بكرة','بعد ٣ أيام'])}
+<div class="lb">يجب أن تكوني جاهزة الساعة</div><div class="big">٦:٠٠ م</div>
+<label for="rg">الميزانية <b id="bv">${n(S.bud)} ر.ق</b></label><input id="rg" type="range" min="200" max="800" step="10" value="${S.bud}" oninput="bud(this.value)">
+${sw('own','عندي عباية أريد استخدامها')}
+<button class="btn" onclick="go(1)">اعرضي الخطط</button>`;
+if(S.st==1)return`<h2>خطتان لـ ${S.occ} ${S.day}</h2><p class="p">الأسعار تشمل التوصيل، والمواعيد مرتّبة لتنتهي قبل ٦:٠٠ م.</p>`+['A','B'].map(k=>{const t=tot(k);return`<div class="card ${S.pl==k?'sel':''}"><div class="hd"><b>${PL[k].n}</b><span>${n(t)} ر.ق</span></div><div class="d">${PL[k].d}</div>${items(k).map(i=>`<div class="ln"><span>${i.n}<small>${i.w}</small></span><span>${n(i.p)}</span></div>`).join('')}${mt(t)}<button class="btn" style="margin-top:12px;padding:12px" onclick="pick('${k}')">اختاري هذه الخطة</button></div>`}).join('')+`<button class="btn g" onclick="go(0)">تعديل الميزانية أو المناسبة</button>`;
+if(S.st==2){const L=items().map(i=>({...i,t:tm(i)})).sort((a,b)=>a.t-b.t);
+const c=i=>{const x=i.a;if(S.ph==0)return['i','جاهز للإرسال',''];if(S.ph==1)return['w','<span class="sp"></span>بانتظار الرد',''];if(S.ph==2)return x?['n','تعذّر الموعد','no']:['o','مؤكد','ok'];return['o','مؤكد','ok']};
+const T=tot();
+return`<h2>${S.ph<3?'ترتيب اليوم':'خطتكِ جاهزة للاعتماد'}</h2><p class="p">كل عنصر يبقى «بانتظار الرد» حتى تؤكد الشريكة الوقت والسعر.</p>
+${S.ph==2?`<div class="al"><b>اعتذرت مها عن موعد ${fm(items().find(i=>i.a).o)}</b><p class="d" style="margin:4px 0 10px">أقرب بديل الساعة ${fm(16)} بسعر ${n(items().find(i=>i.a).a)} ر.ق. الإجمالي الجديد ${n(T+items().find(i=>i.a).a-items().find(i=>i.a).p)} ر.ق.</p><div class="row2"><button class="btn" onclick="set('ph',3)">أوافق على البديل</button><button class="btn g" onclick="S.ph=0;go(1)">غيّري الخطة</button></div></div>`:''}
+<div class="tl">${L.map(i=>{const s=c(i);return`<div class="ti ${s[2]}"><div class="tm">${fm(i.t)}</div><div class="r"><span><b>${i.n}</b><small class="d" style="display:block;margin:0">${i.w}</small></span><span class="st ${s[0]=='i'?'i':s[0]}">${s[1]}</span></div></div>`}).join('')}<div class="ti end"><div class="tm">${fm(18)}</div><b>موعد ${S.occ}</b></div></div>
+<div class="card"><div class="hd"><b>الإجمالي</b><span>${n(T)} ر.ق</span></div>${mt(T)}</div>
+${S.ph==0?`<button class="btn" onclick="send()">أرسلي الطلب للشريكات</button>`:S.ph==1?`<button class="btn" disabled>جارٍ انتظار الردود…</button>`:S.ph==3?`<button class="btn" onclick="go(3)">اعتمدي الخطة</button>`:''}`}
+return`<div class="ctr"><div class="ok-i">${tick}</div><h2>تمّت جدولة إطلالتكِ</h2><p class="p">وصلكِ إشعار بكل موعد، وسنذكّركِ قبل كل خطوة.</p></div>
+<div class="card"><div class="hd"><b>${PL[S.pl].n} · ${S.occ} ${S.day}</b><span>${n(tot())} ر.ق</span></div>${mt(tot())}<div class="ln"><span>الجاهزية</span><b>٦:٠٠ م</b></div><div class="ln"><span>سياسة الإلغاء والإرجاع</span><b>معروضة لكل عنصر</b></div></div>
+<button class="btn" onclick="reset()">ابدئي خطة جديدة</button>`}
+
+function org(){
+const T=S.hrs*S.stf*150+(S.tch?S.hrs*100:0);
+if(S.sent)return`<div class="ctr"><div class="ok-i">${tick}</div><h2>وصل طلب الحجز</h2><p class="p">سيؤكد فريق لمسة التوافر خلال ساعة.</p></div><div class="card"><div class="hd"><b>ركن لمسة قبل الصورة</b><span>${n(T)} ر.ق</span></div><div class="ln"><span>الموقع</span><b>${S.loc}</b></div><div class="ln"><span>المدة</span><b>${n(S.hrs)} ساعة</b></div><div class="ln"><span>رقم الطلب</span><b>LM-٢٦١١</b></div></div><button class="btn g" onclick="set('sent',false)">طلب جديد</button>`;
+return`<h2>احجزي ركن «لمسة قبل الصورة»</h2><p class="p">ركن تجهيز في موقع فعاليتكِ، يُحجز بالساعة.</p>
+<div class="lb">موقع الفعالية</div>${ch('loc',['قاعة حفل','استوديو تصوير','حرم جامعي'])}
+<div class="lb">مدة التشغيل (ساعات)</div>${stp('hrs',1,6)}
+<div class="lb">عدد العاملات</div>${stp('stf',1,4)}
+<div class="lb">الخدمات</div>
+<div class="ln"><span>ضبط الشيلة</span><b>مشمول</b></div><div class="ln"><span>إزالة الوبر من العباية</span><b>مشمول</b></div>
+${sw('tch','رتوش مكياج (+١٠٠ ر.ق في الساعة)')}
+<div class="card" style="margin-top:18px"><div class="hd"><b>التقدير</b><span>${n(T)} ر.ق</span></div><div class="d" style="margin:0">${n(S.stf)} عاملات × ${n(S.hrs)} ساعة × ١٥٠ ر.ق${S.tch?' + رتوش المكياج':''}</div></div>
+<button class="btn" onclick="set('sent',true)">أرسلي طلب الحجز</button>`}
+
+function par(){
+const rq=[['تعديل أكمام عباية سوداء',60,'التسليم قبل ١:٠٠ م'],['تأجير حقيبة سهرة',60,'الاستلام ٤:٣٠ م']];
+const E=S.pcs*20+(S.vid?250:0);
+return`<h2>أهلًا بكِ يا شريكتنا</h2><p class="p">طلبات محدّدة بموعد وسعر، تقبلينها أو تعتذرين عنها.</p>
+<div class="lb">طلبات جديدة</div>${rq.map((q,i)=>`<div class="card"><div class="hd"><b>${q[0]}</b><span>${n(q[1])}</span></div><div class="d" style="margin:0">${q[2]}</div>${S.inb[i]?`<span class="st ${S.inb[i]==1?'o':'n'}" style="display:inline-block;margin-top:10px">${S.inb[i]==1?'تم القبول':'تم الاعتذار'}</span>`:`<div class="row2"><button class="btn" onclick="S.inb[${i}]=1;R(true)">قبول</button><button class="btn g" onclick="S.inb[${i}]=2;R(true)">اعتذار</button></div>`}</div>`).join('')}
+<div class="lb" style="margin-top:22px">تصوير مجموعتكِ</div>
+<div class="card"><label for="pc" style="margin-top:0">عدد القطع <b id="pv">${n(S.pcs)}</b></label><input id="pc" type="range" min="5" max="30" value="${S.pcs}" oninput="S.pcs=+this.value;$('#pv').textContent=n(this.value);$('#pe').textContent=n(S.pcs*20+(S.vid?250:0))+' ر.ق';$('#pp').textContent=n(S.pcs*3)">
+${sw('vid','إضافة فيديو قصير')}<div class="ln" style="margin-top:14px"><span>صور للمتجر</span><b id="pp">${n(S.pcs*3)}</b></div><div class="ln"><span>الباقة</span><b id="pe">${n(E)} ر.ق</b></div></div>
+<button class="btn" onclick="toast('أُرسل طلب موعد التصوير')">اطلبي موعد التصوير</button>`}
+
+function R(keep){
+const m=$('#mn'),y=keep?m.scrollTop:0;
+$('#hd').innerHTML=`<div class="top"><div class="logo">${spark}لمسة</div><span class="tag">نموذج تجريبي، بيانات محاكاة</span></div>${S.r=='c'?`<div class="dots">${[0,1,2,3].map(i=>`<i class="${i<=S.st?'on':''}"></i>`).join('')}</div>`:''}`;
+m.innerHTML=S.r=='c'?cust():S.r=='o'?org():par();
+m.scrollTop=y;
+$('#nv').innerHTML=[['c','العميلة'],['o','منظّمة فعالية'],['p','شريكة']].map(a=>`<button class="${S.r==a[0]?'on':''}" onclick="role('${a[0]}')">${a[1]}</button>`).join('');
+}
+R();
+</script>
+</body>
+</html>

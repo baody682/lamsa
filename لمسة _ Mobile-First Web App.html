@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لمسة | نموذج أولي</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600&display=swap">
+
+
+<style>
+:root{--bg:#f6f3f7;--surface:#fff;--ink:#241a2b;--muted:#6f6377;--line:#e3dce8;--accent:#7a1f4b;--on-accent:#fff;--gold:#a8823f;--ok:#1d6f62;--warn:#b3261e;--soft:#f0e6ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171119;--surface:#231a27;--ink:#f3ecf5;--muted:#a899b0;--line:#3a2d40;--accent:#d36b9f;--on-accent:#1a0f1f;--gold:#d4b06a;--ok:#4cc2af;--warn:#ff8a80;--soft:#33263a}}
+:root[data-theme="dark"]{--bg:#171119;--surface:#231a27;--ink:#f3ecf5;--muted:#a899b0;--line:#3a2d40;--accent:#d36b9f;--on-accent:#1a0f1f;--gold:#d4b06a;--ok:#4cc2af;--warn:#ff8a80;--soft:#33263a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.7 "IBM Plex Sans Arabic",Tahoma,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.app{max-width:430px;margin:0 auto;min-height:100vh;padding:0 18px 96px;background:var(--bg)}
+@media(min-width:500px){.app{border-inline:1px solid var(--line)}}
+header{padding:22px 0 10px;display:flex;align-items:baseline;justify-content:space-between}
+.logo{font:600 30px "Reem Kufi",Tahoma,sans-serif;color:var(--accent);letter-spacing:0}
+.tag{font-size:13px;color:var(--muted)}
+h1{font-size:24px;line-height:1.5;margin:14px 0 6px;font-weight:600}
+h2{font-size:17px;margin:22px 0 8px;font-weight:600}
+p{margin:0 0 10px}.muted{color:var(--muted);font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;margin:10px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip,.btn{font:inherit;cursor:pointer;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 16px;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600;margin-top:14px;border-radius:16px}
+.btn.alt{background:transparent;color:var(--accent)}
+.btn.sm{display:inline-block;width:auto;margin:8px 0 0;padding:8px 16px;font-size:14px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+label.row,.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+input[type=range]{width:100%;accent-color:var(--accent);height:36px;margin:6px 0 0}
+.big{font:600 34px "Reem Kufi",Tahoma,sans-serif;color:var(--accent);line-height:1.3}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:20px;cursor:pointer}
+.step b{min-width:28px;text-align:center;font-size:18px}
+.thread{position:relative;margin:6px 0 0;padding-inline-start:30px}
+.thread::before{content:"";position:absolute;inset-block:10px;inset-inline-start:9px;width:2px;background:linear-gradient(var(--gold),var(--accent))}
+.node{position:relative;padding:8px 0 14px}
+.node::before{content:"";position:absolute;inset-inline-start:-27px;top:15px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.node.fail::before{border-color:var(--warn)}.node.done::before{background:var(--gold);border-color:var(--gold)}
+.t{font-size:13px;color:var(--gold);font-weight:600}
+.item{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.price{font-weight:600;white-space:nowrap}
+.fail .nm{text-decoration:line-through;color:var(--muted)}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:1px 10px;background:var(--soft);color:var(--accent);margin-inline-start:6px}
+.badge.ok{color:var(--ok)}.badge.bad{color:var(--warn)}
+.total{border-top:1px dashed var(--line);margin-top:8px;padding-top:12px}
+.warn{color:var(--warn);font-weight:600}.good{color:var(--ok);font-weight:600}
+.notice{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14px;margin:12px 0}
+nav{position:fixed;inset-inline:0;bottom:0;z-index:5;background:var(--surface);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px))}
+nav div{max-width:430px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+nav button{font:inherit;font-size:13px;background:none;border:0;color:var(--muted);min-height:52px;border-radius:14px;cursor:pointer}
+nav button[aria-current="page"]{color:var(--accent);background:var(--soft);font-weight:600}
+nav span{display:block;font-size:20px;line-height:1.2}
+.sent{text-align:center;padding:26px 10px}.sent .big{font-size:28px}
+@media(prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{opacity:.4;transform:translateY(6px)}}}
+</style>
+
+
+
+</head>
+<body>
+<div class="app">
+<header><span class="logo">لمسة</span><span class="tag">نموذج أولي · بيانات محاكاة</span></header>
+<main id="main"></main>
+</div>
+<nav><div id="nav"></div></nav>
+<script>
+var fmt=function(n){return n.toLocaleString('ar-EG')};
+var S={tab:'cust',step:'form',occ:'حفل تخرج',budget:400,mk:'ok',
+ org:{h:2,w:2,sv:{'ضبط الشيلة':true,'إزالة الوبر من العباية':true,'رتوش المكياج':false},sent:false},
+ shop:{n:5,photo:true,video:false,sent:false}};
+function items(){return [
+ {n:'تعديل الأكمام (خيّاطة شريكة)',p:60,t:'12:00 ظ',s:'ok'},
+ {n:'تأجير حقيبة',p:60,t:'2:00 م',s:'ok'},
+ {n:'حجز مكياج',p:S.mk==='alt'?270:260,t:S.mk==='alt'?'4:30 م':'3:30 م',s:S.mk},
+ {n:'توصيل قياسي',p:10,t:'مع الاستلام',s:'ok'}]}
+function total(){return items().reduce(function(a,i){return a+(i.s==='failed'?0:i.p)},0)}
+function chip(label,on,fn){return '<button class="chip" aria-pressed="'+on+'" onclick="'+fn+'">'+label+'</button>'}
+function stepper(v,dec,inc){return '<div class="step"><button aria-label="إنقاص" onclick="'+dec+'">−</button><b>'+fmt(v)+'</b><button aria-label="زيادة" onclick="'+inc+'">+</button></div>'}
+function form(){
+ var occ=['حفل تخرج','جلسة تصوير','مناسبة خاصة'].map(function(o){return chip(o,S.occ===o,"S.occ='"+o+"';draw()")}).join('');
+ return '<h1>جهّزي إطلالتك في مكان واحد</h1><p class="muted">اختاري المناسبة والميزانية، ونرتّب لك الأزياء والجمال المتاحة من مشاريع قطرية محلية.</p>'+
+ '<h2>ما المناسبة؟</h2><div class="chips">'+occ+'</div>'+
+ '<h2>متى تحتاجين الجاهزية؟</h2><div class="card row"><span>غدًا</span><b>٦:٠٠ مساءً</b></div>'+
+ '<h2>ميزانيتك</h2><div class="card"><div class="row"><span class="muted">الحد الأقصى</span><span class="big">'+fmt(S.budget)+' <small style="font-size:15px">ريال</small></span></div>'+
+ '<input type="range" min="200" max="800" step="10" value="'+S.budget+'" aria-label="الميزانية" oninput="S.budget=+this.value;document.querySelector(\'.big\').firstChild.textContent=fmt(S.budget)+\' \'"></div>'+
+ '<h2>ما لديك</h2><div class="chips"><span class="chip" style="background:var(--soft)">عباية سوداء أملكها</span></div>'+
+ '<button class="btn" onclick="S.step=\'plan\';draw()">اعرضي خطتي</button>'}
+function plan(){
+ var it=items(),tt=total(),over=tt-S.budget;
+ var th=it.map(function(i){var cls=i.s==='failed'?' fail':'';var b=i.s==='alt'?'<span class="badge ok">موعد بديل</span>':i.s==='failed'?'<span class="badge bad">تعذّر</span>':'<span class="badge">بانتظار الرد</span>';
+  return '<div class="node'+cls+'"><div class="t">'+i.t+'</div><div class="item"><span class="nm">'+i.n+b+'</span><span class="price">'+fmt(i.p)+'</span></div></div>'}).join('');
+ var extra='';
+ if(S.mk==='failed')extra='<div class="notice"><b>تعذّر موعد المكياج ٣:٣٠ م.</b><br>بديل متاح الآن: ٤:٣٠ م بسعر ٢٧٠ ريالًا. لن يتغيّر شيء في طلبك قبل موافقتك.<br><button class="btn sm" onclick="S.mk=\'alt\';draw()">أوافق على البديل</button></div>';
+ var st=over>0?'<span class="warn">أعلى من ميزانيتك بـ '+fmt(over)+' ريال</span>':'<span class="good">ضمن ميزانيتك'+(over===0?' تمامًا':' · متبقّي '+fmt(-over)+' ريال')+'</span>';
+ return '<h1>خطة '+S.occ+'</h1><p class="muted">غدًا ٦:٠٠ م · الميزانية '+fmt(S.budget)+' ريال</p>'+
+ '<div class="card"><div class="thread">'+th+'<div class="node done"><div class="t">5:30 م</div><b>جاهزة للمناسبة</b></div></div>'+
+ '<div class="total row"><b>الإجمالي</b><span class="big" style="font-size:28px">'+fmt(tt)+' ريال</span></div><div>'+st+'</div></div>'+extra+
+ (S.mk==='ok'?'<button class="btn alt" onclick="S.mk=\'failed\';draw()">جرّبي: تعذّر موعد المكياج</button>':'')+
+ '<button class="btn alt" onclick="S.mk=\'ok\';S.step=\'form\';draw()">تعديل المناسبة أو الميزانية</button>'+
+ '<p class="muted" style="margin-top:14px">الأسعار والمواعيد بيانات محاكاة للعرض في القمة.</p>'}
+function orgv(){
+ var o=S.org;
+ if(o.sent)return '<div class="card sent"><div class="big">أُرسل الطلب</div><p>حجز ركن «لمسة قبل الصورة» لمدة '+fmt(o.h)+' ساعة بانتظار تأكيد الفريق.</p><button class="btn alt" onclick="S.org.sent=false;draw()">طلب جديد</button></div>';
+ var sv=Object.keys(o.sv).map(function(k){return chip(k,o.sv[k],"S.org.sv['"+k+"']=!S.org.sv['"+k+"'];draw()")}).join('');
+ return '<h1>احجزي ركن «لمسة قبل الصورة»</h1><p class="muted">ركن في موقع الفعالية لتجهيز الإطلالات قبل التصوير.</p>'+
+ '<h2>مدة التشغيل (ساعات)</h2>'+stepper(o.h,'S.org.h=Math.max(1,S.org.h-1);draw()','S.org.h=Math.min(8,S.org.h+1);draw()')+
+ '<h2>عدد العاملات</h2>'+stepper(o.w,'S.org.w=Math.max(1,S.org.w-1);draw()','S.org.w=Math.min(6,S.org.w+1);draw()')+
+ '<h2>الخدمات</h2><div class="chips">'+sv+'</div>'+
+ '<div class="notice">السعر يُتفق عليه مع المنظِّمة بحسب المدة وعدد العاملات والخدمات.</div>'+
+ '<button class="btn" onclick="S.org.sent=true;draw()">أرسلي طلب الحجز</button>'}
+function shopv(){
+ var s=S.shop;
+ if(s.sent)return '<div class="card sent"><div class="big">أُرسل الطلب</div><p>طلب تصوير '+fmt(s.n)+' قطع بانتظار موعد من الفريق.</p><button class="btn alt" onclick="S.shop.sent=false;draw()">طلب جديد</button></div>';
+ return '<h1>صوّري مجموعتك</h1><p class="muted">لأصحاب مشاريع العبايات والإكسسوارات: جلسة تنسّقها مصوّرة ومنسّقة أزياء.</p>'+
+ '<h2>عدد القطع</h2>'+stepper(s.n,'S.shop.n=Math.max(1,S.shop.n-1);draw()','S.shop.n=Math.min(20,S.shop.n+1);draw()')+
+ '<h2>المخرجات</h2><div class="chips">'+chip('صور للمتجر',s.photo,"S.shop.photo=!S.shop.photo;draw()")+chip('فيديو قصير',s.video,"S.shop.video=!S.shop.video;draw()")+'</div>'+
+ '<div class="notice">تُحدَّد الباقة والسعر بعد الاتفاق على عدد القطع والصور ومقاطع الفيديو.</div>'+
+ '<button class="btn" onclick="S.shop.sent=true;draw()">اطلبي موعدًا</button>'}
+var TABS=[['cust','◐','العميلة'],['org','▣','الفعاليات'],['shop','◈','المشاريع']];
+function draw(){
+ document.getElementById('main').innerHTML=S.tab==='cust'?(S.step==='form'?form():plan()):S.tab==='org'?orgv():shopv();
+ document.getElementById('nav').innerHTML=TABS.map(function(t){return '<button '+(S.tab===t[0]?'aria-current="page"':'')+' onclick="S.tab=\''+t[0]+'\';draw();scrollTo(0,0)"><span>'+t[1]+'</span>'+t[2]+'</button>'}).join('')}
+draw();
+</script>
+</body>
+</html>
